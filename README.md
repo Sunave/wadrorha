@@ -4,4 +4,4 @@ It will support links, but hopefully other stuff also.
 
 ## UML
 
-[![UML plan](http://yuml.me/b7561922)]
+![UML plan](http://yuml.me/dec91e83)
