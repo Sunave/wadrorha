@@ -20,5 +20,7 @@
 @import "bootswatch/flatly/variables";
 // Bootstrap body padding for fixed navbar
 body { padding-top: 60px; }
+// Import bootstrap
+@import "bootstrap";
 // And finally bootswatch style itself
 @import "bootswatch/flatly/bootswatch";
