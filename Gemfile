@@ -36,6 +36,9 @@ gem 'bootstrap-sass'
 # Bootswatch themes for Bootstrap
 gem 'bootswatch-rails'
 
+# Font Awesome for icons
+gem 'font-awesome-sass'
+
 # Devise for user management
 gem 'devise'
 
@@ -52,6 +55,8 @@ group :development, :test do
   gem 'better_errors'
 
   gem 'rspec-rails', '~> 3.0'
+
+  gem 'factory_girl_rails'
 end
 
 group :development do

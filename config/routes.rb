@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root 'lists#index'
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: "users/sessions" }
+
+  resources :users, only: [:show]
   
   # The priority is based upon order of creation: first created -> highest priority.
 

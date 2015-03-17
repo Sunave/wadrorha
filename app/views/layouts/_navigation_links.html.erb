@@ -1,1 +1,17 @@
 <%# add navigation links to this file %>
+
+<% if user_signed_in? %>
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+      <%= current_user.username %> <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><%= link_to current_user do %><i class="fa fa-user fa-fw"></i> My page <% end %></li>
+      <li><%= link_to edit_user_registration_path do %><i class="fa fa-pencil-square-o fa-fw"></i> Edit profile <% end %></li>
+      <li><%= link_to destroy_user_session_path, method: :delete do %> <i class="fa fa-sign-out fa-fw"> </i> Sign out <% end %></li>
+    </ul>
+  </li>
+<% else %>
+  <li><%= link_to "Sign up", new_user_registration_path %> </li>
+  <li><%= link_to "Login", new_user_session_path %></li>
+<% end %>
