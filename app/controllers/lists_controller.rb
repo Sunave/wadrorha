@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:show, :index]
 
   # GET /lists
   # GET /lists.json
@@ -25,7 +26,7 @@ class ListsController < ApplicationController
   # POST /lists.json
   def create
     @list = List.new(list_params)
-
+    @list.user = current_user
     respond_to do |format|
       if @list.save
         format.html { redirect_to @list, notice: 'List was successfully created.' }
@@ -69,6 +70,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :description, :private, :user_id)
+      params.require(:list).permit(:name, :description, :private)
     end
 end

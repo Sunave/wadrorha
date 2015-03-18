@@ -20,11 +20,20 @@ require 'rails_helper'
 
 RSpec.describe ListsController, type: :controller do
 
+
+  before :each do
+    #login_user
+    #user = FactoryGirl.create(:user)
+    #sign_in(:user, user)
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # List. As you add validations to List, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    #{ name: 'listname', user_id: (user_signed_in? ? @logged_user.id : 1 ) }
+    { name: 'listname', user_id: 1 }
+    # skip("Add a hash of attributes valid for your model")
   }
 
   let(:invalid_attributes) {
@@ -34,9 +43,10 @@ RSpec.describe ListsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ListsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { { } }
 
   describe "GET #index" do
+
     it "assigns all lists as @lists" do
       list = List.create! valid_attributes
       get :index, {}, valid_session
@@ -51,6 +61,10 @@ RSpec.describe ListsController, type: :controller do
       expect(assigns(:list)).to eq(list)
     end
   end
+
+  describe "when logged in" do
+      login_user
+
 
   describe "GET #new" do
     it "assigns a new list as @list" do
@@ -68,7 +82,7 @@ RSpec.describe ListsController, type: :controller do
   end
 
   describe "POST #create" do
-    context "with valid params" do
+      context "with valid params" do
       it "creates a new List" do
         expect {
           post :create, {:list => valid_attributes}, valid_session
@@ -156,4 +170,5 @@ RSpec.describe ListsController, type: :controller do
     end
   end
 
+    end
 end

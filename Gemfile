@@ -56,6 +56,8 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.0'
 
+  # FactoryGirl generates default factories when scaffolding. If this is a problem, move this
+  # to test group only.
   gem 'factory_girl_rails'
 end
 
@@ -64,5 +66,6 @@ group :development do
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
 end
