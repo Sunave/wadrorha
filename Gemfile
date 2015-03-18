@@ -59,6 +59,20 @@ group :development, :test do
   # FactoryGirl generates default factories when scaffolding. If this is a problem, move this
   # to test group only.
   gem 'factory_girl_rails'
+
+  # Rspec-Guard-Growl automated testing
+  gem 'guard-rspec'
+  gem 'growl'
+  gem 'ruby_gntp'
+end
+
+# For OS X and Rspec-Guard-Growl, as adviced
+# in http://www.johnplummer.com/rails/heroku-error-conditional-rbfsevent-gem.html
+# On non-OSX-systems need to run 'bundle install --without darwin' once.
+# 'heroku config:add BUNDLE_WITHOUT="development test darwin"' or similar
+# also necessary for deployment.
+group :test, :darwin do
+  gem 'rb-fsevent'
 end
 
 group :development do
