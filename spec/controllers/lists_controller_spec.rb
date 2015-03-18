@@ -31,13 +31,13 @@ RSpec.describe ListsController, type: :controller do
   # List. As you add validations to List, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    #{ name: 'listname', user_id: (user_signed_in? ? @logged_user.id : 1 ) }
+    # Add a hash of attributes valid for your model
     { name: 'listname', user_id: 1 }
-    # skip("Add a hash of attributes valid for your model")
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    # Add a hash of attributes invalid for your model
+    { name: '', user_id: nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -117,7 +117,8 @@ RSpec.describe ListsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        # Add a hash of attributes valid for your model
+        { name: 'test2' }
       }
 
       it "updates the requested list" do
@@ -170,5 +171,5 @@ RSpec.describe ListsController, type: :controller do
     end
   end
 
-    end
+  end
 end
