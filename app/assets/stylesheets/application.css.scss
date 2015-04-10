@@ -18,6 +18,10 @@
 //
 // First import variables
 @import "bootswatch/flatly/variables";
+
+// Then the custom settings
+@import "custom_overrides";
+
 // Bootstrap body padding for fixed navbar
 body { padding-top: 60px; }
 // Import bootstrap

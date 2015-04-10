@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :items, except: [:index]
+
   resources :lists
 
   root 'lists#index'

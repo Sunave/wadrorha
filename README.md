@@ -2,8 +2,5 @@
 
 # Latr
 ## Storage for things you plan on doing - later
-It will support links, but hopefully other stuff also.
 
-## UML
-
-![UML plan](http://yuml.me/dec91e83)
+[Here to wiki](https://github.com/Sunave/wadrorha/wiki), which contains UML, link to Trello, small explanation of project, etc.

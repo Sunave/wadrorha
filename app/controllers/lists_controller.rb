@@ -5,7 +5,8 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    rand_ids = List.pluck(:id).shuffle[0..4]
+    @lists = List.where(id: rand_ids)
   end
 
   # GET /lists/1

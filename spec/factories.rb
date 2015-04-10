@@ -1,4 +1,11 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :item do
+    name "MyString"
+url "MyText"
+description "MyText"
+important false
+list_id 1
+  end
+
   factory :list do
     name "Test1"
     description "Testlist one"

@@ -1,0 +1,17 @@
+// For custom overrides, including the ones that need to happen after importing bootswatch
+
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+a:visited {
+  color: $brand-success;
+}
+
+a:hover {
+  background-color: inherit;
+}
+
+.link-box{
+  word-wrap: break-word;
+}

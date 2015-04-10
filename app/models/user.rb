@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
             length: { in: 2..20 }
 
   has_many :lists
+  has_many :items, through: :lists
 end
