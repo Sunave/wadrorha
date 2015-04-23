@@ -43,6 +43,8 @@ gem 'font-awesome-sass'
 # Devise for user management
 gem 'devise'
 
+gem 'acts-as-taggable-on'
+
 group :development, :test do
   gem 'sqlite3'
 
@@ -62,8 +64,6 @@ group :development, :test do
   # FactoryGirl generates default factories when scaffolding. If this is a problem, move this
   # to test group only.
   gem 'factory_girl_rails'
-
-  gem 'acts-as-taggable-on'
 
   # Rspec-Guard-Growl automated testing
   gem 'guard-rspec'
