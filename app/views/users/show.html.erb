@@ -1,3 +1,4 @@
+<br>
 <div class="row">
   <div class="col-md-4">
     <% if @user == current_user %>
@@ -8,15 +9,10 @@
   </div>
 
 
-  <div class="col-md-4">
-    <div class="list-group">
-      <h1>Lists</h1>
-      <% @user.lists.each do |list| %>
-        <%= link_to list_path, class:"list-group-item" do %>
-          <h4 class="list-group-item-heading"><%= list.name %></h4>
-          <div class="list-group-item"><small><%= list.description %></small></div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+
+</div>
+
+<div class="row">
+  <h1><%= @user.username %>'s lists</h1>
+  <%= render 'lists/lists_list', lists: @user.lists, show_users: false %>
 </div>

@@ -32,18 +32,6 @@
 
 <br>
 <div class="row">
-  <div class="col-md-4">
-    <div class="list-group">
-      <% @items.each do |item| %>
-        <%= link_to item, class:"list-group-item" do %>
-          <h4 class="list-group-item-heading"><%= item.name %></h4>
-          <div class="list-group-item">
-            <%= link_to item.url, item.url %>
-            <small><%= item.description %></small>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <%= render 'items/items', items: @items, show_users: true %>
 </div>
 <%= link_to 'New Item', new_item_path %>

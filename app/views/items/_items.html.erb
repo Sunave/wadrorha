@@ -10,13 +10,15 @@
             <%= link_to item, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-times"></i><% end %>
           </div>
         <% end %>
-        <h3 class="panel-title"><%= item.name %></h3>
+        <h3 class="panel-title"><%= item.name %>
+        <% if show_users %><small>by <%= link_to item.user.username, item.user %></small><% end %>
+        </h3>
       </div>
       <div class="panel-body">
         <small>
           <%= item.description %><br>
         </small>
-        <em><%= link_to item.url, target: '_blank' %></em>
+        <em><%= link_to item.url, item.url, target: '_blank' %></em>
       </div>
       <div class="panel-footer">
         <%= raw item.tag_list.map { |tag| link_to tag, tag_path(tag), class:"label label-success"}.join(' ') %>
