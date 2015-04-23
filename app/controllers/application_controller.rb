@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "You have no access to do that."
+    redirect_to root_url
+  end
 end
