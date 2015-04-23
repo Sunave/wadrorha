@@ -63,6 +63,8 @@ group :development, :test do
   # to test group only.
   gem 'factory_girl_rails'
 
+  gem 'acts-as-taggable-on'
+
   # Rspec-Guard-Growl automated testing
   gem 'guard-rspec'
   gem 'growl'

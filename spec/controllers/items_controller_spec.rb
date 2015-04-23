@@ -24,11 +24,11 @@ RSpec.describe ItemsController, type: :controller do
   # Item. As you add validations to Item, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { name: 'itemname', list_id: 1 }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: '', list_id: nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -36,6 +36,8 @@ RSpec.describe ItemsController, type: :controller do
   # ItemsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  # There's no index for items
+=begin
   describe "GET #index" do
     it "assigns all items as @items" do
       item = Item.create! valid_attributes
@@ -43,6 +45,11 @@ RSpec.describe ItemsController, type: :controller do
       expect(assigns(:items)).to eq([item])
     end
   end
+=end
+
+  describe "when logged in" do
+    login_user
+
 
   describe "GET #show" do
     it "assigns the requested item as @item" do
@@ -114,15 +121,17 @@ RSpec.describe ItemsController, type: :controller do
       end
 
       it "assigns the requested item as @item" do
+        FactoryGirl.create :list, id:1
         item = Item.create! valid_attributes
         put :update, {:id => item.to_param, :item => valid_attributes}, valid_session
         expect(assigns(:item)).to eq(item)
       end
 
       it "redirects to the item" do
+        FactoryGirl.create :list, id:1
         item = Item.create! valid_attributes
         put :update, {:id => item.to_param, :item => valid_attributes}, valid_session
-        expect(response).to redirect_to(item)
+        expect(response).to redirect_to(item.list)
       end
     end
 
@@ -143,17 +152,20 @@ RSpec.describe ItemsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested item" do
+      request.env["HTTP_REFERER"] = 'http://test.host/lists/1'
       item = Item.create! valid_attributes
       expect {
         delete :destroy, {:id => item.to_param}, valid_session
       }.to change(Item, :count).by(-1)
     end
 
-    it "redirects to the items list" do
+    it "redirects to back" do
+      request.env["HTTP_REFERER"] = 'http://test.host/lists/1'
       item = Item.create! valid_attributes
       delete :destroy, {:id => item.to_param}, valid_session
-      expect(response).to redirect_to(items_url)
+      expect(response).to redirect_to(:back)
     end
   end
 
+  end
 end

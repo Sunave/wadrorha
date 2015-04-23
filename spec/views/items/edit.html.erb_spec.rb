@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "items/edit", type: :view do
   before(:each) do
+    FactoryGirl.create(:list, id: 1)
     @item = assign(:item, Item.create!(
       :name => "MyString",
       :url => "MyText",
@@ -24,7 +25,7 @@ RSpec.describe "items/edit", type: :view do
 
       assert_select "input#item_important[name=?]", "item[important]"
 
-      assert_select "input#item_list_id[name=?]", "item[list_id]"
+      assert_select "select#item_list_id[name=?]", "item[list_id]"
     end
   end
 end

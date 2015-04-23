@@ -31,6 +31,10 @@
     <%= f.label :list_id %><br>
     <%= f.select :list_id, options_from_collection_for_select(@lists, :id, :name, selected: @item.list_id) %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list, "Tags, separate by commas" %><br>
+    <%= f.text_field :tag_list, value: @item.tag_list.to_s %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

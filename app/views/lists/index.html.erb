@@ -2,13 +2,6 @@
 
 <p>Or <%= link_to 'create your own list', new_list_path %></p>
 
-<div class="col-md-4">
-  <div class="list-group">
-    <% @lists.each do |list| %>
-      <%= link_to list, class:"list-group-item" do %>
-        <h4 class="list-group-item-heading"><%= list.name %> <small>by <%= list.user.username %></small></h4>
-        <div class="list-group-item"><small><%= list.description %></small></div>
-      <% end %>
-    <% end %>
-  </div>
+<div class="row">
+  <%= render 'lists/lists_list', lists: @lists, show_users: true %>
 </div>

@@ -4,4 +4,6 @@ class List < ActiveRecord::Base
 
   belongs_to :user
   has_many :items
+
+  acts_as_taggable
 end

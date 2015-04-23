@@ -1,35 +1,13 @@
 <h4><% if @list.user == current_user %>
+    <div class="pull-right">
+    <%= link_to new_item_path do %><i class="btn btn-default fa fa-plus"></i><% end %>
     <%= link_to edit_list_path(@list) do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %>
+        </div>
   <% end %></h4>
 <h1><%= @list.name %> <small>by <%= link_to @list.user.username, @list.user %></small></h1>
 
 <p class="lead"><em><%= @list.description %></em></p>
 
-<p><%= link_to "Add item", new_item_path %></p>
-
 <div class="row">
-  <% @list.items.each do |item| %>
-    <div class="col-md-4">
-
-      <div class="list-group link-box">
-        <%= link_to item.url, class:"list-group-item", target: '_blank' do %>
-          <h4 class="list-group-item-heading">
-            <%= item.name %>
-          </h4>
-          <div class="list-group-item">
-            <small>
-              <%= item.description %><br>
-            </small>
-            <em><%= item.url %></em>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-md-1">
-      <% if @list.user == current_user %>
-        <%= link_to edit_item_path(item) do %><i class="fa fa-pencil"></i><% end %>
-        <%= link_to item, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-times"></i><% end %>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render 'items/items', items: @list.items %>
 </div>

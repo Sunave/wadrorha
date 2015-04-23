@@ -1,9 +1,8 @@
-<% if @user == current_user %>
-  <h4><%= link_to edit_user_registration_path do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %></h4>
-<% end %>
-
 <div class="row">
   <div class="col-md-4">
+    <% if @user == current_user %>
+      <%= link_to edit_user_registration_path do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %>
+    <% end %>
     <h1><%= @user.username %></h1>
     <p><%= @user.firstname %> <%= @user.lastname %></p>
   </div>

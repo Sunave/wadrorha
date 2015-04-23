@@ -23,6 +23,10 @@
     <%= f.label :private %><br>
     <%= f.check_box :private %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list, "Tags, separate by commas" %><br>
+    <%= f.text_field :tag_list, value: @list.tag_list.to_s %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
