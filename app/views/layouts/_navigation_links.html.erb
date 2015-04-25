@@ -1,7 +1,10 @@
 <%# add navigation links to this file %>
 
 <% if user_signed_in? %>
-  <li><%= link_to new_item_path do %><i class="fa fa-plus fa-fw"></i> Add item<% end %></li>
+
+  <li><%= link_to new_item_path, class: "btn btn-primary" do %><i class="fa fa-plus fa-fw"></i>Item<% end %></li>
+  <li><%= link_to new_list_path, class: "btn btn-primary" do %><i class="fa fa-plus fa-fw"></i>List<% end %></li>
+
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
       <%= current_user.username %> <span class="caret"></span>

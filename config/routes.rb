@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  get 'tags/:tag', to: 'items#index', as: :tag
+  get 'tags/:tag', to: 'tags#show', as: :tag
   
   # The priority is based upon order of creation: first created -> highest priority.
 

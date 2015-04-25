@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1><span class="label label-success"><%= @tag %></span> results</h1>
+
+<% unless @items.empty? %>
+  <h2>Items</h2>
+  <div class="row">
+    <%= render 'items/items', items: @items, show_users: true %>
+  </div>
+<% end %>
+
+<% unless @lists.empty? %>
+  <h2>Lists</h2>
+  <div class="row">
+    <%= render 'lists/lists_list', lists: @lists, show_users: true %>
+  </div>
+<% end %>
