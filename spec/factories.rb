@@ -1,4 +1,12 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :community_membership do
+    user_id 1
+community_id 1
+  end
+  factory :community do
+    name "MyString"
+description "MyString"
+  end
+
 
   factory :item do
     name "MyString"

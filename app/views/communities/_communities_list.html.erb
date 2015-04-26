@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% communities.each do |community| %>
+      <div class="col-md-4">
+        <div class="panel panel-default link-box">
+          <div class="panel-heading" %>
+            <% if community.owner_id == current_user.id %>
+              <div class="pull-right">
+                <%= link_to edit_community_path(community) do %><i class="fa fa-pencil"></i><% end %>
+                <%= link_to community, method: :delete, data: { confirm: 'Are you sure? All items on list will be destroyed permanently.' } do %><i class="fa fa-times"></i><% end %>
+              </div>
+            <% end %>
+            <h4 class="panel-title"><%= link_to community.name, community %>
+            </h4>
+          </div>
+          <div class="panel-body"><small><%= community.description %></small></div>
+          <div class="panel-footer">
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

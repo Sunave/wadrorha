@@ -6,6 +6,15 @@
     <% end %>
     <h1><%= @user.username %></h1>
     <p><%= @user.firstname %> <%= @user.lastname %></p>
+    <p><em><%= @user.description %></em></p>
+
+    <% unless @user.communities.blank? %>
+      <h3>Belongs to</h3>
+      <% @user.communities.each do |community| %>
+        <span class="label label-primary"><%= link_to community.name, community %></span>
+      <% end %>
+    <% end %>
+
   </div>
 
 

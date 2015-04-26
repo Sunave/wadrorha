@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
 
   has_many :lists
   has_many :items, through: :lists
+  has_many :communities, through: :community_memberships
+  has_many :community_memberships, dependent: :destroy
 end

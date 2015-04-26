@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :community_memberships
+
+  resources :communities, except: [:destroy]
+
   resources :items, except: [:index]
 
   resources :lists

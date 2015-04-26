@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    # pre-select right list
+    unless session[:latest_list_id].nil?
+      @item.list_id = session[:latest_list_id]
+    end
   end
 
   # GET /items/1/edit
@@ -32,7 +36,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-    @item.user = current_user
+    @item.user_id = current_user.id
 
     respond_to do |format|
       if @item.save

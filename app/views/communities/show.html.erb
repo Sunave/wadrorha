@@ -1,0 +1,31 @@
+<% if @community.owner_id == current_user.id %>
+  <%= link_to edit_community_path(@community) do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %>
+<% end %>
+<h1> <%= @community.name %> </h1>
+
+<p class="lead"><em><%= @community.description %></em></p>
+
+
+
+<% unless @community.members.empty? %>
+  <h2>Members</h2>
+  <% @community.members.each do |member| %>
+      <%= link_to member.username, member, class: "label label-primary" %>
+  <% end %>
+<% end %>
+
+<% if @community.members.include? current_user %>
+  <p></p>
+  <h4>Want to leave?</h4>
+  <%= form_for(@membership, method: "delete") do |f| %>
+    <%= f.hidden_field :community_id %>
+    <%= f.submit value: "End membership", class: "btn btn-default" %>
+  <% end %>
+<% end %>
+
+<% if @community.members.exclude? current_user %>
+  <%= form_for(@membership) do |f| %>
+    <%= f.hidden_field :community_id %>
+    <%= f.submit value: "Join the community", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
