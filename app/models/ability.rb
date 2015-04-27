@@ -30,7 +30,10 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     user ||= User.new # guest user (not logged in)
-    can :manage, :all, user_id: user.id
+    can :manage, [List, Item, User], user_id: user.id
     can :read, :all, :private.nil? || :private => false
+    can :read, Community
+    can :manage, Community, :owner_id => user.id
+
   end
 end
