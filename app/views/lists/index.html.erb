@@ -1,6 +1,6 @@
-<h1>Here's <%= @lists.count %> random <%= 'list'.pluralize @lists.count %> for you</h1>
+<%= link_to new_list_path do %><i class="btn btn-default fa fa-plus pull-right"></i><% end %>
 
-<p>Or <%= link_to 'create your own list', new_list_path %></p>
+<h1>Here's <%= @lists.count %> random <%= 'list'.pluralize @lists.count %> for you</h1>
 
 <div class="row">
   <%= render 'lists/lists_list', lists: @lists, show_users: true %>
