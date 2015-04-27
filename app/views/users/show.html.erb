@@ -1,8 +1,6 @@
 <br>
 <div class="row">
-  <div class=""
-  <div class="panel panel-default">
-    <div class="panel-body">
+  <div class="col-md-12">
       <% if @user == current_user %>
         <%= link_to edit_user_registration_path do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %>
       <% end %>
@@ -16,10 +14,7 @@
           <%= link_to community.name, community, class:"label label-primary" %>
         <% end %>
       <% end %>
-    </div>
   </div>
-
-
 </div>
 
 <div class="row">
