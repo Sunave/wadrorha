@@ -36,7 +36,7 @@
   </div>
   <div class="field">
     <%= f.label :tag_list, "Tags, separate by commas" %><br>
-    <%= f.text_field :tag_list, value: @item.tag_list.to_s, class:"form-control" %>
+    <%= f.autocomplete_field :tag_list, autocomplete_tag_name_tags_path, :'data-delimiter' => ', ', value: @item.tag_list.to_s, class:"form-control" %>
   </div>
   <div class="actions">
     <%= f.submit class:"btn btn-primary" %>

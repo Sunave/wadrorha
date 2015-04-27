@@ -47,6 +47,10 @@ gem 'acts-as-taggable-on'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'rails4-autocomplete'
+
+gem 'jquery-ui-rails'
+
 group :development, :test do
   gem 'sqlite3'
 

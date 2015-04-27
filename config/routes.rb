@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :items, except: [:index]
 
+  resource :tags do
+    get :autocomplete_tag_name, :on => :collection
+  end
+
   resources :lists
 
   root 'lists#index'
