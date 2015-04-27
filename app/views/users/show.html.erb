@@ -1,21 +1,25 @@
 <br>
 <div class="row">
-  <div class="col-md-4">
-    <% if @user == current_user %>
-      <%= link_to edit_user_registration_path do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %>
-    <% end %>
-    <h1><%= @user.username %></h1>
-    <p><%= @user.firstname %> <%= @user.lastname %></p>
-    <p><em><%= @user.description %></em></p>
-
-    <% unless @user.communities.blank? %>
-      <h3>Belongs to communities</h3>
-      <% @user.communities.each do |community| %>
-        <%= link_to community.name, community, class:"label label-primary" %>
+  <div class=""
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <% if @user == current_user %>
+        <%= link_to edit_user_registration_path do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %>
       <% end %>
-    <% end %>
+      <h1><%= @user.username %></h1>
+      <p class="lead"><em><%= @user.firstname %> <%= @user.lastname %></em></p>
+      <blockquote><%= @user.description %></blockquote>
 
+      <% unless @user.communities.blank? %>
+        <h3>Belongs to communities</h3>
+        <% @user.communities.each do |community| %>
+          <%= link_to community.name, community, class:"label label-primary" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
+
+
 </div>
 
 <div class="row">
@@ -23,7 +27,7 @@
   <%= render 'lists/lists_list', lists: @user.lists, show_users: false %>
 </div>
 
-<% if @user == current_user %>
+<% if @user == current_user && !@user.private_lists.blank? %>
   <div class="row">
     <h1>Your private lists</h1>
     <%= render 'lists/lists_list', lists: @user.private_lists, show_users: false %>
