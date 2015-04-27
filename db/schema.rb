@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426160146) do
+ActiveRecord::Schema.define(version: 20150427143108) do
 
   create_table "communities", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "owner_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150426160146) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.boolean  "private"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
