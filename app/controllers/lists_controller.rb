@@ -16,6 +16,7 @@ class ListsController < ApplicationController
     if @list.user == current_user
       session[:latest_list_id] = @list.id
     end
+    @items = @list.items.order("important DESC")
   end
 
   # GET /lists/new
