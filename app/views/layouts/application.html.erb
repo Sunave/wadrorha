@@ -12,15 +12,12 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <main role="main">
+    <main role="main">
+      <div class="container">
 
-          <%= render 'layouts/messages' %>
-          <%= yield %>
-
-        </main>
+        <%= render 'layouts/messages' %>
+        <%= yield %>
       </div>
-    </div>
+    </main>
   </body>
 </html>
