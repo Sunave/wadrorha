@@ -45,6 +45,9 @@ RSpec.describe ListsController, type: :controller do
   # ListsController. Be sure to keep this updated too.
   let(:valid_session) { { } }
 
+  describe "when logged in" do
+    login_user
+
   describe "GET #index" do
 
     it "assigns all lists as @lists" do
@@ -61,10 +64,6 @@ RSpec.describe ListsController, type: :controller do
       expect(assigns(:list)).to eq(list)
     end
   end
-
-  describe "when logged in" do
-      login_user
-
 
   describe "GET #new" do
     it "assigns a new list as @list" do
