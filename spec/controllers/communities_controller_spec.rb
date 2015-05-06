@@ -52,11 +52,14 @@ RSpec.describe CommunitiesController, type: :controller do
     end
   end
 
+  describe "when logged in" do
+    login_user
   describe "GET #new" do
     it "assigns a new community as @community" do
       get :new, {}, valid_session
       expect(assigns(:community)).to be_a_new(Community)
     end
+  end
   end
 
   describe "GET #edit" do
