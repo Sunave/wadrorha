@@ -16,8 +16,10 @@ class CommunitiesController < ApplicationController
     else
       @membership = CommunityMembership.new
     end
-    @membership.community = @community
-    @membership.user = current_user
+    unless current_user.nil?
+      @membership.community = @community
+      @membership.user = current_user
+    end
   end
 
   # GET /communities/new

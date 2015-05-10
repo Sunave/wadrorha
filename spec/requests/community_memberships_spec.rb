@@ -1,3 +1,6 @@
+# Not in use, you shouldn't be able to list memberships
+
+=begin
 require 'rails_helper'
 
 RSpec.describe "CommunityMemberships", type: :request do
@@ -8,3 +11,4 @@ RSpec.describe "CommunityMemberships", type: :request do
     end
   end
 end
+=end

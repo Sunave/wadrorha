@@ -5,18 +5,20 @@ RSpec.describe "communities/index", type: :view do
     assign(:communities, [
       Community.create!(
         :name => "Name",
-        :description => "Description"
+        :description => "Description",
+        owner_id: 1
       ),
       Community.create!(
         :name => "Name",
-        :description => "Description"
+        :description => "Description",
+        owner_id: 1
       )
     ])
+    assign_ability
   end
 
   it "renders a list of communities" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "Description".to_s, :count => 2
+    assert_select "h4", :class => "panel-title".to_s, :count => 2
   end
 end

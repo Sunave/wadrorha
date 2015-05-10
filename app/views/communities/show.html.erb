@@ -1,4 +1,4 @@
-<% if @community.owner_id == current_user.id %>
+<% if can? :manage, @community %>
   <%= link_to edit_community_path(@community) do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %>
 <% end %>
 <h1> <%= @community.name %> </h1>
@@ -14,18 +14,20 @@
   <% end %>
 <% end %>
 
-<% if @community.members.include? current_user %>
-  <p></p>
-  <h4>Want to leave?</h4>
-  <%= form_for(@membership, method: "delete") do |f| %>
-    <%= f.hidden_field :community_id %>
-    <%= f.submit value: "End membership", class: "btn btn-default" %>
+<% unless current_user.nil? %>
+  <% if @community.members.include? current_user %>
+    <p></p>
+    <h4>Want to leave?</h4>
+    <%= form_for(@membership, method: "delete") do |f| %>
+      <%= f.hidden_field :community_id %>
+      <%= f.submit value: "End membership", class: "btn btn-default" %>
+    <% end %>
   <% end %>
-<% end %>
 
-<% if @community.members.exclude? current_user %>
-  <%= form_for(@membership) do |f| %>
-    <%= f.hidden_field :community_id %>
-    <%= f.submit value: "Join the community", class: "btn btn-primary" %>
+  <% if @community.members.exclude? current_user %>
+    <%= form_for(@membership) do |f| %>
+      <%= f.hidden_field :community_id %>
+      <%= f.submit value: "Join the community", class: "btn btn-primary" %>
+    <% end %>
   <% end %>
 <% end %>

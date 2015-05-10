@@ -15,7 +15,7 @@ RSpec.describe "communities/new", type: :view do
 
       assert_select "input#community_name[name=?]", "community[name]"
 
-      assert_select "input#community_description[name=?]", "community[description]"
+      assert_select "textarea#community_description[name=?]", "community[description]"
     end
   end
 end

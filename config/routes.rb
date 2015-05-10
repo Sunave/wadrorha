@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :community_memberships
+  resources :community_memberships, only: [:new, :create, :destroy]
 
   resources :communities, except: [:destroy]
 

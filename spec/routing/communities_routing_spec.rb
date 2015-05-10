@@ -27,9 +27,10 @@ RSpec.describe CommunitiesController, type: :routing do
       expect(:put => "/communities/1").to route_to("communities#update", :id => "1")
     end
 
-    it "routes to #destroy" do
-      expect(:delete => "/communities/1").to route_to("communities#destroy", :id => "1")
-    end
+    # No destroy feature implemented at the moment
+    # it "routes to #destroy" do
+    #   expect(:delete => "/communities/1").to route_to("communities#destroy", :id => "1")
+    # end
 
   end
 end

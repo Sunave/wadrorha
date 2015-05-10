@@ -17,11 +17,9 @@ RSpec.describe "lists/edit", type: :view do
 
       assert_select "input#list_name[name=?]", "list[name]"
 
-      assert_select "input#list_description[name=?]", "list[description]"
+      assert_select "textarea#list_description[name=?]", "list[description]"
 
       assert_select "input#list_private[name=?]", "list[private]"
-
-      assert_select "input#list_user_id[name=?]", "list[user_id]"
     end
   end
 end

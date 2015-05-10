@@ -4,10 +4,9 @@
       <div class="col-md-4">
         <div class="panel panel-default link-box">
           <div class="panel-heading" %>
-            <% if community.owner_id == current_user.id %>
+            <% if can? :manage, community %>
               <div class="pull-right">
                 <%= link_to edit_community_path(community) do %><i class="fa fa-pencil"></i><% end %>
-                <%= link_to community, method: :delete, data: { confirm: 'Are you sure? All items on list will be destroyed permanently.' } do %><i class="fa fa-times"></i><% end %>
               </div>
             <% end %>
             <h4 class="panel-title"><%= link_to community.name, community %>

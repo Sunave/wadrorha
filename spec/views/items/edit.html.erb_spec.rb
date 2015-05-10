@@ -2,24 +2,30 @@ require 'rails_helper'
 
 RSpec.describe "items/edit", type: :view do
   before(:each) do
-    FactoryGirl.create(:list, id: 1)
+    @lists = [(FactoryGirl.create :list, id: 1)]
+    @user = FactoryGirl.create :user, id: 1
     @item = assign(:item, Item.create!(
       :name => "MyString",
-      :url => "MyText",
+      :url => "http://MyText.com",
       :description => "MyText",
       :important => false,
-      :list_id => 1
+      :list_id => 1,
+      user_id:1
     ))
+
+    assign_ability
   end
 
   it "renders the edit item form" do
+    current_user = @user
+
     render
 
     assert_select "form[action=?][method=?]", item_path(@item), "post" do
 
       assert_select "input#item_name[name=?]", "item[name]"
 
-      assert_select "textarea#item_url[name=?]", "item[url]"
+      assert_select "input#item_url[name=?]", "item[url]"
 
       assert_select "textarea#item_description[name=?]", "item[description]"
 
@@ -29,3 +35,4 @@ RSpec.describe "items/edit", type: :view do
     end
   end
 end
+

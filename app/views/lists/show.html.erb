@@ -1,4 +1,4 @@
-<h4><% if @list.user == current_user %>
+<h4><% if can? :manage, @list %>
     <div class="pull-right">
     <%= link_to new_item_path do %><i class="btn btn-default fa fa-plus"></i><% end %>
     <%= link_to edit_list_path(@list) do %><i class="btn btn-default pull-right fa fa-pencil"></i><% end %>

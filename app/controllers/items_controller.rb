@@ -85,6 +85,6 @@ class ItemsController < ApplicationController
     end
 
   def set_lists
-    @lists = List.where(user_id: current_user.id)
+    @lists = List.where(user: current_user)
   end
 end

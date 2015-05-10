@@ -11,4 +11,9 @@ describe List do
     list = List.create name:"Test"
     expect(list).not_to be_valid
   end
+
+  it "is valid if it has name and user" do
+    user = FactoryGirl.create :user
+    list = List.new name:"Test", user: user
+  end
 end

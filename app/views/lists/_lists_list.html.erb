@@ -4,7 +4,7 @@
       <div class="col-md-4">
         <div class="panel panel-default link-box">
           <div class="panel-heading" %>
-            <% if list.user == current_user %>
+            <% if can? :manage, list %>
               <div class="pull-right">
                 <%= link_to edit_list_path(list) do %><i class="fa fa-pencil"></i><% end %>
                 <%= link_to list, method: :delete, data: { confirm: 'Are you sure? All items on list will be destroyed permanently.' } do %><i class="fa fa-times"></i><% end %>
